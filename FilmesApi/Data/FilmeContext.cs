@@ -12,4 +12,5 @@ public class FilmeContext : DbContext
     }
 
     public DbSet<Filme> Filmes { get; set; }
+    public DbSet<Filme> Cinemas { get; set; }
 }
