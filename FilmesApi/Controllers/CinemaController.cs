@@ -19,14 +19,14 @@ public class CinemaController : ControllerBase
         _mapper = mapper;
     }
 
+
     [HttpPost]
     public IActionResult AdicionaCinema([FromBody] CreateCinemaDto cinemaDto)
     {
         Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
         _context.Cinemas.Add(cinema);
         _context.SaveChanges();
-        return CreatedAtAction(nameof(RecuperaCinemasPorId), 
-            new{ Id = cinema.Id }, cinemaDto);
+        return CreatedAtAction(nameof(RecuperaCinemasPorId), new { Id = cinema.Id }, cinemaDto);
     }
 
     [HttpGet]
@@ -60,6 +60,7 @@ public class CinemaController : ControllerBase
         return NoContent();
     }
 
+
     [HttpDelete("{id}")]
     public IActionResult DeletaCinema(int id)
     {
@@ -72,5 +73,4 @@ public class CinemaController : ControllerBase
         _context.SaveChanges();
         return NoContent();
     }
-
 }

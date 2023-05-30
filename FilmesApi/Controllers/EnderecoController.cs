@@ -49,7 +49,7 @@ public class EnderecoController : ControllerBase
     public IActionResult AtualizaEndereco(int id, [FromBody] UpdateEnderecoDto
         enderecoDto)
     {
-        Endereco endereco = _context.Endereco.FirstOrDefault(endereco =>
+        Endereco endereco = _context.Enderecos.FirstOrDefault(endereco =>
         endereco.Id == id);
         if (endereco == null)
         {
